@@ -1,0 +1,7 @@
+Django==4.1.9
+django-cors-headers==4.0.0
+bcrypt==4.0.1
+djangorestframework==3.14.0
+django-filter==23.2
+djangorestframework-jsonapi
+drf_yasg

@@ -1,0 +1,13 @@
+<template>
+    <require from="style/home.css"></require>
+    <require from="style/loading.css"></require>
+    <require from='common/home/components/cliente'></require>
+    <require from='common/home/components/restaurante'></require>
+
+    <div class="home-page-container">
+        <client if.bind="!loading && (user.tipoUsuario == 3 || user.tipoUsuario == 1)"></client>
+        <restaurant if.bind="!loading && user.tipoUsuario == 2"></restaurant>
+
+        <div if.bind="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+</template>

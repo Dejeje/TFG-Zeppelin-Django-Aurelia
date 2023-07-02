@@ -1,0 +1,29 @@
+<template>
+    <require from="style/login.css"></require>
+
+	<div class="login-container">
+		<div class="form-login-container">
+			<span class="title"> Welcome, <strong> back</strong> </span>
+			<div class="sub-title-container">
+				<div class="subtitle-arrow"></div>
+				<span class="round-center"></span>
+				<div class="subtitle-arrow"></div>
+			</div>
+
+			<div class="alert alert-danger" if.bind="signupError">${signupError}</div>
+			<form role="form" submit.delegate="login()">
+				<fieldset>
+					<legend>Email</legend>
+					<input type="text" value.bind="email" id="email" placeholder="Enter your e-mail" />
+				</fieldset>
+				<fieldset>
+					<legend>Password</legend>
+					<input type="password" value.bind="password" id="password" placeholder="Enter the password">
+				</fieldset>
+				<button type="submit" class="btn btn-default submit-acttion">Login</button>
+				<span class="create-account"> You don't have an account? <strong> <a href="/#/registro"> Create one! </a> </strong></span>
+			</form>
+			<hr> 
+		</div>
+	</div>
+</template>

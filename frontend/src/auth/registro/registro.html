@@ -1,0 +1,52 @@
+<template>
+    <require from="style/register.css"></require>
+
+	<div class="register-container">
+		<div class="form-register-container">
+			<span class="title"> Welcome to <strong> Zeppelin </strong> </span>
+			<div class="sub-title-container">
+				<div class="subtitle-arrow"></div>
+				<span class="round-center"></span>
+				<div class="subtitle-arrow"></div>
+			</div>
+			<form role="form" submit.delegate="signup()">
+				<fieldset>
+					<legend>Nombre</legend>
+					<input type="text" value.bind="nombre" id="nombre" required>
+				</fieldset>
+				<fieldset>
+					<legend>Apellidos</legend>
+					<input type="text" value.bind="apellidos" id="apellidos" required>
+				</fieldset>
+				<fieldset>
+					<legend>Fecha de Nacimiento</legend>
+					<input type="date" value.bind="fechaNacimiento" id="fechaNacimiento" required>
+				</fieldset>
+				<fieldset>
+					<legend>Tipo de Usuario</legend>
+					<div>
+						<div class="client-option">
+							<input type="radio" id="3" value="3"  checked.bind="tipoUsuario">
+							<label for="3">Cliente</label>
+						</div>
+						<div class="client-option">
+							<input type="radio" id="2" value="2" checked.bind="tipoUsuario">
+							<label for="2">Restaurante</label>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Email</legend>
+					<input type="email" value.bind="email" id="email" required>
+				</fieldset>
+				<fieldset>
+					<legend>Contraseña</legend>
+					<input type="password" value.bind="password" id="password" required>
+				</fieldset>
+
+				<button type="submit" class="btn btn-default submit-acttion"> Sign up </button>
+			</form> 
+			<hr>
+		</div>
+	</div>
+</template>

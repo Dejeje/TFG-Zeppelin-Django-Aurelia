@@ -1,0 +1,138 @@
+.client-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+.client-title {
+    font-weight: 100;
+    font-size: 4rem;
+}
+
+.client-title > strong {
+    font-weight: 900;
+}
+
+.client-description {
+    margin-top: 20px;
+    font-weight: 100;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.restaurants-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #94a3b8;
+    padding: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.restaurant:hover > .see-menu-action {
+    background-color: #1e293b;
+}
+
+.restaurant > .header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.restaurant > .header > .title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    word-break: break-all;
+}
+
+.restaurant > .header > .categoria {
+    font-size: 0.9rem;
+    background-color: #bae6fd;
+    padding: 5px 10px;
+    min-width: 100px;
+    max-width: 8rem;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    color: #0ea5e9;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+.restaurant > .header > .categorias-list {
+    font-size: 1rem;
+    font-weight: 100;
+    display: flex;
+    gap: 10px;
+    width: 40%;
+    margin-top: 10px;
+}
+
+.restaurant > .direction {
+    font-size: 1rem;
+    font-weight: 100;
+    word-break: break-all;
+}
+
+.restaurant > .see-menu-action{
+    font-size: 1.2rem;
+    font-weight: 900;
+    word-break: break-all;
+    background-color: #475569;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+
+.validate-user-action {
+    font-size: 1.2rem;
+    font-weight: 900;
+    word-break: break-all;
+    background-color: #38bdf8;
+    padding: 5px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+
+fieldset {
+    background-color: white;
+    color: #27272a;
+    padding: 5px 10px;
+    border-radius: 8px;
+    width: 500px;
+    margin: 20px 0
+}
+
+fieldset > legend { 
+    display: none;
+}
+
+fieldset > input { 
+    font-size: 1rem;
+    margin: 0;
+    background-color: white;
+    border: none;
+    width: 100%
+}
+
+fieldset > input:focus {
+    outline: none;
+}

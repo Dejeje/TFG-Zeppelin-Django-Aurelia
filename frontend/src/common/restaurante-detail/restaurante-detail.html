@@ -1,0 +1,59 @@
+<template>
+    <require from="style/restaurante-detail.css"></require>
+    <require from="style/loading.css"></require>
+    <div if.bind="!loading" class="restaurant-detail-container">
+        <div>
+            <span class="title-section">${ idRestaurante ? 'Actualizar Restaurante' : 'Crear Restaurante' } </span>
+            <strong>
+                <div class="alert alert-success" if.bind="detail">${detail}</div>
+            </strong>
+            <form role="form" submit.delegate="updateRestaurant()">
+                <fieldset>
+                    <legend>Nombre</legend>
+                    <input type="text" value.bind="restaurante.nombre" id="nombre"
+                        placeholder="Entra el nombre del restaurante" required />
+                </fieldset>
+                <fieldset>
+                    <legend>Categoria</legend>
+                    <div class="categoria" repeat.for="categoria of categorias">
+                        <span>${categoria.categoria}</span>
+                        <input type="checkbox" checked.bind="restaurante.categorias" model.bind="categoria.id">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Calle</legend>
+                    <input type="text" value.bind="restaurante.direccion.calle" id="calle" placeholder="Entra la calle"
+                        required />
+                </fieldset>
+                <fieldset>
+                    <legend>Número</legend>
+                    <input type="number" value.bind="restaurante.direccion.numero" id="numero"
+                        placeholder="Entra el numero" required />
+                </fieldset>
+                <fieldset>
+                    <legend>Ciudad</legend>
+                    <input type="text" value.bind="restaurante.direccion.ciudad" id="ciudad"
+                        placeholder="Entra la ciudad" required />
+                </fieldset>
+                <fieldset>
+                    <legend>Codigo Postal</legend>
+                    <input type="number" value.bind="restaurante.direccion.codigoPostal" id="codigoPostal"
+                        placeholder="Entra el codigo postal" required />
+                </fieldset>
+
+                <button type="submit" class="btn btn-default submit-acttion"> ${ idRestaurante ? 'Actualizar' :
+                    'Guardar' } </button>
+            </form>
+        </div>
+    </div>
+    <div if.bind="loading" class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</template>

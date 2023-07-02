@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  backend:
+    container_name: backend
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+      - ./zeppelin/migrations:/app/zeppelin/migrations:rw

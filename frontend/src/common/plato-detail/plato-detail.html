@@ -1,0 +1,46 @@
+<template>
+    <require from="style/plato-detail.css"></require>
+    <require from="style/loading.css"></require>
+    <div if.bind="!loading" class="plato-detail-container">
+        <div>
+            <span class="title-section">${ idPlato ? 'Actualizar Plato' : 'Crear Plato' } </span>
+            <strong>
+                <div class="alert alert-success" if.bind="detail">${detail}</div>
+            </strong>
+            <form role="form" submit.delegate="updatePlato()">
+                <fieldset>
+                    <legend>Titulo</legend>
+                    <input type="text" value.bind="plato.titulo" id="titulo"
+                        placeholder="Entra el nombre del restaurante" required />
+                </fieldset>
+                <fieldset>
+                    <legend>Descripcion</legend>
+                    <input type="text" value.bind="plato.descripcion" id="descripcion"
+                        placeholder="Selecciona la fecha de alta" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Disponible?</legend>
+                    <input type="checkbox" checked.bind="plato.disponibilidad" id="disponibilidad">
+                </fieldset>
+                <fieldset>
+                    <legend> Precio</legend>
+                    <input type="text" value.bind="plato.precio" id="precio"
+                        placeholder="Entra el numero de penalizaciones">
+                </fieldset>
+
+                <button type="submit" class="btn btn-default submit-acttion"> ${ idPlato ? 'Actualizar' : 'Guardar' }
+                </button>
+            </form>
+        </div>
+    </div>
+    <div if.bind="loading" class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</template>

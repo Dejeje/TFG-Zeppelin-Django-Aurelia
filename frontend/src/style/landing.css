@@ -1,0 +1,30 @@
+.landing-container {
+    height: calc(100vh - 5.9rem);
+    width: 100%;
+    background-image: url('../assets/wallpaper.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 50px;
+}
+
+.tiitle-landing {
+    font-size: 6rem;
+    font-weight: 100;
+    margin-bottom: 100px;
+}
+
+.tiitle-landing > strong {
+    font-weight: 900;
+}
+
+.description {
+    font-size: 1.5rem;
+    font-weight: 100;
+    max-width: 25rem;
+}

@@ -1,0 +1,156 @@
+.restaurant-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+.restaurant-title {
+    font-weight: 100;
+    font-size: 4rem;
+}
+
+.restaurant-title > strong {
+    font-weight: 900;
+}
+
+.restaurant-description {
+    margin-top: 20px;
+    font-weight: 100;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.restaurants-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: #94a3b8;
+    padding: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.restaurant:hover > .see-menu-action {
+    background-color: #1e293b;
+}
+
+.restaurant > .header {
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant > .header > .title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    word-break: break-all;
+}
+
+.restaurant > .header > .categoria {
+    font-size: 0.9rem;
+    background-color: #bae6fd;
+    padding: 5px 10px;
+    min-width: 100px;
+    max-width: 8rem;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    color: #0ea5e9;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+.restaurant > .direction {
+    font-size: 1rem;
+    font-weight: 100;
+    word-break: break-all;
+}
+
+.restaurant > .actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px
+}
+
+.restaurant > .actions > .delete{
+    font-size: 1.2rem;
+    font-weight: 100;
+    word-break: break-all;
+    background-color: #b91c1c;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+
+.restaurant > .actions > .update{
+    font-size: 1.2rem;
+    font-weight: 100;
+    word-break: break-all;
+    background-color: #38bdf8;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+
+.restaurant > .actions > .plates {
+    font-size: 1.2rem;
+    font-weight: 100;
+    word-break: break-all;
+    background-color: #57534e;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+
+.new-restaurant {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 100;
+    word-break: break-all;
+    background-color: #22c55e;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+
+fieldset {
+    background-color: white;
+    color: #27272a;
+    padding: 5px 10px;
+    border-radius: 8px;
+    width: 500px;
+    margin: 20px 0
+}
+
+fieldset > legend { 
+    display: none;
+}
+
+fieldset > input { 
+    font-size: 1rem;
+    margin: 0;
+    background-color: white;
+    border: none;
+    width: 100%
+}
+
+fieldset > input:focus {
+    outline: none;
+}
+
+.alert {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

@@ -1,0 +1,25 @@
+<template>
+    <require from="style/plato.css"></require>
+    <require from="style/loading.css"></require>
+    <div class="plate-header">
+        <span class="title"> Lista de platos </span>
+        <div if.bind="user.tipoUsuario == 2" click.delegate="newPlate()" class="new-plate"> Nuevo Plato </div>
+    </div>
+    <strong><div class="alert alert-success" if.bind="detail">${detail}</div></strong>
+
+    <div if.bind="!loading" class="plato-container">
+        <div repeat.for="plato of platos" class="plato">
+            <span class="nombre"> ${ plato.titulo } </span>
+            <hr class="divider" />
+            <span> ${ plato.descripcion } </span>
+            <span class="price"> ${ plato.precio.toFixed(2) }€ </span>
+            <div class="actions">
+                <div if.bind="!plato.disponibilidad && user.tipoUsuario == 2" class="available" click.delegate="changestatusPlate(plato.id, true)"> Make it Available </div>
+                <div if.bind="plato.disponibilidad && user.tipoUsuario == 2" class="unavailable" click.delegate="changestatusPlate(plato.id, false)"> Make it Unavailable </div>
+                <div if.bind="user.tipoUsuario == 2" class="delete-action" click.delegate="deletePlate(plato.id)"> Delete </div>
+                <div if.bind="user.tipoUsuario == 2" class="update-action" click.delegate="goToUpdatePlate(plato.id)"> Update </div>
+            </div>
+        </div>
+    </div>
+    <div if.bind="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <require from="style/navbar.css"></require>
+
+    <div class="navbar">
+        <img src="../../assets/logo.png" class="logo" />
+
+        <ul class="options-navbar">
+            <li> <a href="/#/index">Home</a> </li>
+
+            <li if.bind="!isAuthenticated" class="login-action"> <a href="/#/login">Login</a> </li>
+            <li if.bind="!isAuthenticated" class="sign-up-action"> <a href="/#/registro">Sign up</a> </li>
+            <li if.bind="isAuthenticated"> <a href="/#/home"> Restaurante/Cliente </a> </li>
+            <li if.bind="isAuthenticated" class="logout-action" click.delegate="logout()"> Logout </li>
+        </ul>
+    </div>
+
+</template>

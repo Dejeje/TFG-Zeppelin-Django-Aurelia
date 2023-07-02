@@ -1,0 +1,123 @@
+.plato-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.title { 
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding-left: 20px;
+}
+
+.plato {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: #94a3b8;
+    padding: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.plato-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.plato > .divider {
+    width: 100%;
+    border: 1px solid #eff6ff;
+}
+
+
+.plato > .nombre {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.price {
+    width: 100%;
+    text-align: right;
+    font-size: 2rem;
+    font-weight: '100';
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.update-action {
+    background-color: #38bdf8;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.delete-action {
+    background-color: #dc2626;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.available {
+    background-color: #22c55e;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.unavailable {
+    background-color: #262626;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.plate-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.new-plate {
+    font-size: 1.2rem;
+    font-weight: 100;
+    word-break: break-all;
+    background-color: #22c55e;
+    padding: 5px 20px;
+    border-radius: 4px;
+    width: 200px;
+    margin-left: 20px;
+    cursor: pointer;
+}

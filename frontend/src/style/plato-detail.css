@@ -1,0 +1,58 @@
+.plato-detail-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    gap: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+
+form > fieldset {
+    background-color: white;
+    color: #27272a;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin: 0;
+}
+
+form > fieldset > legend { 
+    font-size: .8rem;
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+input { 
+    font-size: 1rem;
+    margin: 0;
+    background-color: white;
+    border: none;
+    width: 100%
+}
+
+input:focus, input:active {
+    outline: none;
+}
+
+.submit-acttion {
+    background-color: #7bcbf0;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.submit-acttion:hover {
+    background-color: #66c6f2;
+}
+
+.title-section {
+    font-size: 2rem;
+    font-weight: 800;
+}

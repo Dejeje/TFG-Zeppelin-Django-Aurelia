@@ -1,0 +1,29 @@
+<template>
+    <require from="style/cliente.css"></require>
+    <require from="style/loading.css"></require>
+    <div if.bind="!loading" class="client-container">
+        <h1 class="client-title"> Welcome back, <strong>${user.nombre} ${user.apellidos} </strong></h1>
+        <p class="client-description"> Review the new restaurants available and the possibilities they offer </p>
+        <div if.bind="user.tipoUsuario === 1" class="validate-user-action" click.delegate="goToValidateUsers()"> Validar usuarios pendientes </div>
+        <fieldset>
+            <legend>Email</legend>
+            <input type="text" input.delegate="filterCategories($event.target.value)" placeholder="Search restaurant by name o categoria" />
+        </fieldset>
+
+        <div class="restaurants-list">
+            <div repeat.for="restaurant of restaurantes" class="restaurant">
+                <div class="header">
+                    <span class="title">${restaurant.nombre}</span>
+                    <div class="categorias-list">
+                        <div repeat.for="categoria of restaurant.categorias" class="categoria">
+                            <span class="categoria">${categoria.categoria}</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="direction"> ${restaurant.direccion.calle} ${restaurant.direccion.numero}, ${restaurant.direccion.ciudad} </span>
+                <div class="see-menu-action" click.delegate="goToPlatos(restaurant.id)"> See Menu </div>
+            </div>
+        </div>
+    </div>
+    <div if.bind="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ </template>
