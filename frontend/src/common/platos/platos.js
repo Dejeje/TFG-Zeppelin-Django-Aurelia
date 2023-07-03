@@ -29,7 +29,6 @@ export class Platos {
 
     }
     
-    
     getTipoUsuario(idTipo) {
         switch (idTipo) {
             case 2: return 'Restaurante';

@@ -1,12 +1,9 @@
-import { inject, computedFrom } from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import { AuthService } from 'aurelia-authentication';
 
 @inject(AuthService)
 export class Registro {
 
-  // Any signup errors will be reported by
-  // giving this view model a value in the
-  // catch block within the signup method
   signupError = '';
 
   constructor(authService) {
@@ -18,7 +15,6 @@ export class Registro {
     this.fechaNacimiento = '';
     this.tipoUsuario = '3';
   }
-
   signup() {
     const datosUsuario = {
       nombre: this.nombre,

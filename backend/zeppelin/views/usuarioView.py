@@ -82,7 +82,6 @@ class UsuarioViewSet(viewsets.ModelViewSet):
            
         return Response(serializer.errors, status=400)
 
-    @action(detail=False, methods=['post'])
     @swagger_auto_schema(
         operation_description="Esta operación logea a un usuario",
         operation_summary="Operación para hacer login a un Usuario",
@@ -92,6 +91,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             401: 'Credenciales inválidas',
         }
     )
+    @action(detail=False, methods=['post'])
     def login(self, request):
         serializer = serializers.LoginSerializer(data=request.data)
         if serializer.is_valid():
@@ -112,7 +112,6 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             token = Token.objects.get_or_create(user=usuario)[0].key
             login(request, usuario)
             
-            # Crear la respuesta con el mensaje de inicio de sesión exitoso
             return Response({'detail': 'Inicio de sesión exitoso', 'access_token': token})
 
         return Response(serializer.errors, status=400)
