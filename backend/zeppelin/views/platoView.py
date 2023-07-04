@@ -10,12 +10,13 @@ from django.shortcuts import get_object_or_404
 from ..models.models import Plato, Restaurante
 from . import serializers
 
+
 class PlatoViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PlatoSerializer
     queryset = Plato.objects.all()
     http_method_names = ['get', 'post', 'patch', 'delete']
     permission_classes = [IsAuthenticated]
-    
+
     @swagger_auto_schema(
         operation_description="Operación para listar los platos de la base de datos",
         operation_summary="Operación para listar todas los platos",
@@ -37,7 +38,7 @@ class PlatoViewSet(viewsets.ModelViewSet):
     )
     def create(self, request, *args, **kwargs):
         serializer = serializers.PlatoSerializer(data=request.data)
-        if serializer.is_valid():            
+        if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
         else:

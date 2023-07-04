@@ -42,17 +42,11 @@ export default {
   tokenPrefix: 'Token ',
   // Name of the header to send the token in
   authHeader: 'Authorization',
-  // Token value to be sent in the Authorization header
-  //authToken: 'Token ',
   // Name of the property in the server response that contains the token value
   responseTokenProp: 'localStorage.access_token',
 
   // Flag indicating whether to use a refresh token for authentication
   useRefreshToken: false,
-  // Name of the property in the server response that contains the access token (if applicable)
-  //accessTokenProp: '',
-  // Name of the property in the server response that contains the refresh token (if applicable)
-  //refreshTokenProp: '',
   // Flag indicating whether to validate the authentication status on page load
   validateOnPageLoad: true,
 
@@ -61,9 +55,6 @@ export default {
 // The header property used to contain the authToken in the header of API requests that require authentication
   // The token name used in the header of API requests that require authentication
   authTokenType: 'Token ',
-  /*
-  // Logout when the token is invalidated by the server
-  logoutOnInvalidToken : false;*/
   // The property from which to get the access token after a successful login or signup
   accessTokenProp: 'access_token',
 
@@ -76,8 +67,6 @@ export default {
   platform : 'browser',
   // Determines the `window` property name upon which aurelia-authentication data is stored (Default: `window.localStorage`)
   storage : 'localStorage',
-  // The key used for storing the authentication response locally
-  //storageKey : 'access_token',
   // full page reload if authorization changed in another tab (recommended to set it to 'true')
   storageChangedReload : true,
 

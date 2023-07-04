@@ -16,7 +16,7 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = CategoriaRestaurante.objects.all()
     http_method_names = ['get', 'post', 'patch', 'delete']
     permission_classes = [IsAuthenticated]
-    
+
     @swagger_auto_schema(
         operation_description="Operación para listar las categorias de restaurantes de la base de datos",
         operation_summary="Operación para listar las categorias de restaurantes",

@@ -1,17 +1,17 @@
 from django.contrib import admin
-from django.urls    import path, include
+from django.urls import path, include
 
 from drf_yasg.views import get_schema_view
-from drf_yasg       import openapi
+from drf_yasg import openapi
 
-from rest_framework.routers     import DefaultRouter
+from rest_framework.routers import DefaultRouter
 from rest_framework.permissions import AllowAny
 
-from .views.usuarioView     import UsuarioViewSet
+from .views.usuarioView import UsuarioViewSet
 from .views.restauranteView import RestauranteViewSet
-from .views.categoriaView   import CategoriaViewSet
-from .views.direccionView   import DireccionViewSet
-from .views.platoView       import PlatoViewSet
+from .views.categoriaView import CategoriaViewSet
+from .views.direccionView import DireccionViewSet
+from .views.platoView import PlatoViewSet
 
 schema_view = get_schema_view(
     openapi.Info(

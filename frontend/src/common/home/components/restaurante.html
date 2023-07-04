@@ -1,12 +1,15 @@
 <template>
-   <require from="style/restaurante.css"></require>
-   <div class="restaurant-container">
+    <require from="style/restaurante.css"></require>
+    <div class="restaurant-container">
         <div click.delegate="newRestaurant()" class="new-restaurant"> New restaurant </div>
         <fieldset>
-            <input type="text" input.delegate="filterCategories($event.target.value)" placeholder="Search restaurant by name o category" />
+            <input type="text" input.delegate="filterCategories($event.target.value)"
+                placeholder="Search restaurant by name o category" />
         </fieldset>
 
-        <strong><div class="alert alert-success" if.bind="detail">${detail}</div></strong>
+        <strong>
+            <div class="alert alert-success" if.bind="detail">${detail}</div>
+        </strong>
 
         <div class="restaurants-list">
             <div repeat.for="restaurant of restaurantes" class="restaurant">
@@ -14,8 +17,10 @@
                     <span class="title">${restaurant.nombre}</span>
                     <span class="categoria"> ${getCategoriaName(restaurant.categoria_id)} </span>
                 </div>
-                <span class="direction"> Direccion: <strong> ${restaurant.direccion.calle} ${restaurant.direccion.numero}, ${restaurant.direccion.ciudad} </strong> </span>
-                <span class="direction"> Responsable: <strong> ${restaurant.responsable.nombre} ${restaurant.responsable.apellidos} </strong> </span>
+                <span class="direction"> Direccion: <strong> ${restaurant.direccion.calle}
+                        ${restaurant.direccion.numero}, ${restaurant.direccion.ciudad} </strong> </span>
+                <span class="direction"> Responsable: <strong> ${restaurant.responsable.nombre}
+                        ${restaurant.responsable.apellidos} </strong> </span>
                 <div class="actions">
                     <div click.delegate="deleteRestaurant(restaurant.id)" class="delete"> Delete </div>
                     <div click.delegate="goToPlates(restaurant.id)" class="plates"> Platos </div>

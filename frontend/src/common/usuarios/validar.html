@@ -2,7 +2,9 @@
     <require from="style/validate-users.css"></require>
     <require from="style/loading.css"></require>
     <span class="titleValidar"> User Pending Validation </span>
-    <strong><div class="alert alert-success" if.bind="detail">${detail}</div></strong>
+    <strong>
+        <div class="alert alert-success" if.bind="detail">${detail}</div>
+    </strong>
     <div if.bind="!loading" class="validate-user-container">
         <div repeat.for="usuario of usuarios" class="usuario">
             <div class="usuario-header">
@@ -14,5 +16,14 @@
             <div class="validate" click.delegate="validateUser(usuario.id)"> Validate </div>
         </div>
     </div>
-    <div if.bind="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div if.bind="loading" class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </template>

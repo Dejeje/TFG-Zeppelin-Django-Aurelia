@@ -1,4 +1,4 @@
-import { Router, activationStrategy  } from 'aurelia-router';
+import { Router, activationStrategy } from 'aurelia-router';
 import { inject } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 

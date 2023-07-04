@@ -19,10 +19,10 @@ export class RestaurantDetail {
 
     activate(params) {
         this.idRestaurante = params.idRestaurante;
-        
-        if (this.idRestaurante) 
+
+        if (this.idRestaurante)
             this.fetchRestaurante(this.idRestaurante);
-        else 
+        else
             this.fetchCategorias();
     }
 
@@ -89,7 +89,7 @@ export class RestaurantDetail {
             const data = await response.json();
 
             this.categorias = data;
-            
+
             this.loading = false;
         } catch (error) {
             console.error(error);

@@ -9,12 +9,13 @@ from django.shortcuts import get_object_or_404
 from ..models.models import Direccion
 from . import serializers
 
+
 class DireccionViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.DireccionSerializer
     queryset = Direccion.objects.all()
     http_method_names = ['get', 'post', 'patch', 'delete']
     permission_classes = [IsAuthenticated]
-    
+
     @swagger_auto_schema(
         operation_description="Operación para listar las direcciones de la base de datos",
         operation_summary="Operación para listar todas las direcciones",

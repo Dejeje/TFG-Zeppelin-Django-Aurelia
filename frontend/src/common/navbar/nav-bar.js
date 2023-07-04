@@ -1,5 +1,5 @@
-import {inject} from 'aurelia-framework';
-import {AuthService} from 'aurelia-authentication';
+import { inject } from 'aurelia-framework';
+import { AuthService } from 'aurelia-authentication';
 import { Router } from 'aurelia-router';
 
 @inject(AuthService, Router)
@@ -14,10 +14,10 @@ export class NavBar {
     return this.authService.isAuthenticated();
   };
 
-  logout(){
+  logout() {
     localStorage.removeItem('access_token');
     this.authService.logout()
-      .then(() => { 
+      .then(() => {
         window.location.reload();
       });
   }

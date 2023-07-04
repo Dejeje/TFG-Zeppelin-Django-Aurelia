@@ -9,3 +9,11 @@ docker-compose up
 ## Hay un usuario admin creado, para iniciar sesión el 
 ## Email: admin@admin.com
 ## Password: admin
+
+## Hay un usuario restaurante creado:
+## Email: dg@gmail.com
+## Passwrod: 1234
+
+## Hay un usuario cliente creado:
+## Email: dgg@gmail.com
+## Passwrod: 1234

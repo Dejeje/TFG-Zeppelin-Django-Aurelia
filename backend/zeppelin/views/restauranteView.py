@@ -18,7 +18,7 @@ class RestauranteViewSet(viewsets.ModelViewSet):
     queryset = Restaurante.objects.all()
     http_method_names = ['get', 'post', 'patch', 'delete']
     permission_classes = [IsAuthenticated]
-    
+
     @swagger_auto_schema(
         operation_description="Operación para listar los restaurantes de la base de datos",
         operation_summary="Operación para listar restaurantes",
@@ -37,7 +37,6 @@ class RestauranteViewSet(viewsets.ModelViewSet):
         serializer = serializers.RestauranteSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    
     @swagger_auto_schema(
         operation_description="Esta operación crea un restaurante",
         operation_summary="Operación para crear un nuevo Restaurante",
@@ -59,7 +58,7 @@ class RestauranteViewSet(viewsets.ModelViewSet):
         fecha_actual = datetime.now()
         serializer = serializers.CrearRestauranteSerializer(data=request.data)
         if serializer.is_valid():
-            if usuario_actual.tipoUsuario == Usuario.TipoUsuario.RESTAURANTE:            
+            if usuario_actual.tipoUsuario == Usuario.TipoUsuario.RESTAURANTE:
                 categorias = serializer.validated_data.pop('categorias', [])
                 restaurante = serializer.save(
                     fechaAlta=fecha_actual, responsable=usuario_actual)
@@ -90,7 +89,7 @@ class RestauranteViewSet(viewsets.ModelViewSet):
             400: 'BAD REQUEST',
             405: 'Método no permitido, tipo de usuario incorrectoo'
         },
-    )  
+    )
     def partial_update(self, request, pk=None):
         usuario_actual = request.user
         restaurante = get_object_or_404(self.queryset, pk=pk)
@@ -119,10 +118,10 @@ class RestauranteViewSet(viewsets.ModelViewSet):
         if (usuario_actual == restaurante.responsable):
             restaurante = get_object_or_404(self.queryset, pk=pk)
             restaurante.delete()
-            return Response({'detail': 'Restaurante eliminado con exito'},status=204)
+            return Response({'detail': 'Restaurante eliminado con exito'}, status=204)
         else:
             return Response({'detail': 'Método no permitido, usuario no dueño de restaurante'}, status=405)
-        
+
     @action(detail=True, methods=['get'])
     @swagger_auto_schema(
         operation_description="Operación para listar los platos de un restaurante, si el usuario es el dueño se muestran los no validados",

@@ -4,10 +4,12 @@
     <div if.bind="!loading" class="client-container">
         <h1 class="client-title"> Welcome back, <strong>${user.nombre} ${user.apellidos} </strong></h1>
         <p class="client-description"> Review the new restaurants available and the possibilities they offer </p>
-        <div if.bind="user.tipoUsuario === 1" class="validate-user-action" click.delegate="goToValidateUsers()"> Validate pending users </div>
+        <div if.bind="user.tipoUsuario === 1" class="validate-user-action" click.delegate="goToValidateUsers()">
+            Validate pending users </div>
         <fieldset>
             <legend>Email</legend>
-            <input type="text" input.delegate="filterCategories($event.target.value)" placeholder="Search restaurant by name o categoria" />
+            <input type="text" input.delegate="filterCategories($event.target.value)"
+                placeholder="Search restaurant by name o categoria" />
         </fieldset>
 
         <div class="restaurants-list">
@@ -20,10 +22,20 @@
                         </div>
                     </div>
                 </div>
-                <span class="direction"> ${restaurant.direccion.calle} ${restaurant.direccion.numero}, ${restaurant.direccion.ciudad} </span>
+                <span class="direction"> ${restaurant.direccion.calle} ${restaurant.direccion.numero},
+                    ${restaurant.direccion.ciudad} </span>
                 <div class="see-menu-action" click.delegate="goToPlatos(restaurant.id)"> See Menu </div>
             </div>
         </div>
     </div>
-    <div if.bind="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
- </template>
+    <div if.bind="loading" class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</template>

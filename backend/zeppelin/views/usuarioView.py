@@ -17,6 +17,7 @@ from django.db.models import Q
 from ..models.models import Usuario
 from . import serializers
 
+
 @method_decorator(
     name='list',
     decorator=swagger_auto_schema(
@@ -31,7 +32,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     http_method_names = ['get', 'post', 'patch', 'delete']
     permission_classes = [AllowAny]
-    
+
     @action(detail=False, methods=['get'])
     @swagger_auto_schema(
         operation_description="Esta operación devuelve el usuario actualmente autenticado",
@@ -40,15 +41,15 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             200: serializers.UsuarioSerializer(),
             403: 'No hay usuario autenticado',
         },
-    )    
+    )
     def perfil(self, request):
         if request.user.is_authenticated:
             usuario = request.user
             serializer = self.get_serializer(usuario)
             return Response(serializer.data)
         else:
-             return Response({'detail': 'No hay usuario autenticado'}, status=403)
-         
+            return Response({'detail': 'No hay usuario autenticado'}, status=403)
+
     @swagger_auto_schema(
         operation_description="Esta operación crea un usuario",
         operation_summary="Operación para crear un nuevo Usuario",
@@ -73,13 +74,13 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             # Encriptar la contraseña
             usuario.password = make_password(usuario.password)
             usuario.save()
-              
+
             if usuario is not None:
                 # El usuario ha sido creado correctamente
                 return Response({'detail': 'Registro exitoso'}, status=201)
             else:
                 return Response({'detail': 'Registro incorrecto'}, status=401)
-           
+
         return Response(serializer.errors, status=400)
 
     @swagger_auto_schema(
@@ -108,10 +109,10 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 
             if not usuario.validado:
                 return Response({'detail': 'Usuario no validado'}, status=401)
-            
+
             token = Token.objects.get_or_create(user=usuario)[0].key
             login(request, usuario)
-            
+
             return Response({'detail': 'Inicio de sesión exitoso', 'access_token': token})
 
         return Response(serializer.errors, status=400)
@@ -131,7 +132,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             logout(request)
             return Response({'detail': 'Cierre de sesión exitoso'}, status=200)
         else:
-             return Response({'detail': 'No hay usuario autenticado'}, status=403)
+            return Response({'detail': 'No hay usuario autenticado'}, status=403)
 
     @action(detail=False, methods=['get'], url_path='validar/(?P<id>[^/.]+)')
     @swagger_auto_schema(
@@ -142,22 +143,22 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             401: 'No tienes autorizacion',
             403: 'No hay usuario autenticado',
         },
-    )    
-    def validar(self, request,id=None):
+    )
+    def validar(self, request, id=None):
         if request.user.is_authenticated:
             usuario = request.user
             if usuario.tipoUsuario == Usuario.TipoUsuario.ADMIN:
-                 
+
                 user = get_object_or_404(self.queryset, pk=id)
                 user.validado = True
                 user.save()
-                
+
                 return Response({'detail': 'Usuario con ID ' + id + ' validado'}, status=200)
             else:
                 return Response({'detail': 'No tienes permisos'}, status=401)
         else:
-             return Response({'detail': 'No hay usuario autenticado'}, status=403)
-         
+            return Response({'detail': 'No hay usuario autenticado'}, status=403)
+
     @action(detail=False, methods=['get'])
     @swagger_auto_schema(
         operation_description="Esta operación devuelve el listado de usuario por validar",
@@ -166,11 +167,12 @@ class UsuarioViewSet(viewsets.ModelViewSet):
             200: serializers.NombreEmailSerializer(),
             403: 'No hay usuario autenticado',
         },
-    )    
+    )
     def por_validar(self, request):
         if request.user.is_authenticated:
-            usuarios = Usuario.objects.filter(Q(validado=False) & Q(tipoUsuario=Usuario.TipoUsuario.RESTAURANTE))
+            usuarios = Usuario.objects.filter(Q(validado=False) & Q(
+                tipoUsuario=Usuario.TipoUsuario.RESTAURANTE))
             serializer = serializers.NombreEmailSerializer(usuarios, many=True)
             return Response(serializer.data, status=200)
         else:
-             return Response({'detail': 'No hay usuario autenticado'}, status=403)
+            return Response({'detail': 'No hay usuario autenticado'}, status=403)

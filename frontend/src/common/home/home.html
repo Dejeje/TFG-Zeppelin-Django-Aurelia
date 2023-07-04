@@ -8,6 +8,15 @@
         <client if.bind="!loading && (user.tipoUsuario == 3 || user.tipoUsuario == 1)"></client>
         <restaurant if.bind="!loading && user.tipoUsuario == 2"></restaurant>
 
-        <div if.bind="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <div if.bind="loading" class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </template>

@@ -7,4 +7,5 @@ class Plato(models.Model):
     descripcion = models.CharField(max_length=100)
     disponibilidad = models.BooleanField()
     precio = models.FloatField()
-    restaurante = models.ForeignKey(Restaurante, on_delete=models.CASCADE, related_name='platos')
+    restaurante = models.ForeignKey(
+        Restaurante, on_delete=models.CASCADE, related_name='platos')

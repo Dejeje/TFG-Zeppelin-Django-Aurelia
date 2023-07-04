@@ -1,4 +1,4 @@
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 import authConfig from './auth/auth-config';
 
 export function configure(aurelia) {
@@ -7,7 +7,7 @@ export function configure(aurelia) {
     .developmentLogging()
     /* configure aurelia-authentication */
     .plugin(PLATFORM.moduleName('aurelia-authentication'), baseConfig => {
-        baseConfig.configure(authConfig); 
+      baseConfig.configure(authConfig);
     });
 
   aurelia.use.plugin(PLATFORM.moduleName('aurelia-router'));
