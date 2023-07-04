@@ -53,7 +53,6 @@ export class Client {
           var token;
           localStorage.getItem('access_token', token); 
     
-          // Configurar el encabezado de autorización en la solicitud Fetch
           this.http.configure(config => {
             config.withDefaults({
               headers: {
@@ -63,7 +62,6 @@ export class Client {
             });
           });
     
-          // Hacer la solicitud Fetch
           const response = await this.http.fetch('http://localhost:8000/zeppelin/restaurante/');
           const data = await response.json();
           

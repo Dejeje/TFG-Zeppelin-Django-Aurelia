@@ -4,7 +4,7 @@
     <div if.bind="!loading" class="client-container">
         <h1 class="client-title"> Welcome back, <strong>${user.nombre} ${user.apellidos} </strong></h1>
         <p class="client-description"> Review the new restaurants available and the possibilities they offer </p>
-        <div if.bind="user.tipoUsuario === 1" class="validate-user-action" click.delegate="goToValidateUsers()"> Validar usuarios pendientes </div>
+        <div if.bind="user.tipoUsuario === 1" class="validate-user-action" click.delegate="goToValidateUsers()"> Validate pending users </div>
         <fieldset>
             <legend>Email</legend>
             <input type="text" input.delegate="filterCategories($event.target.value)" placeholder="Search restaurant by name o categoria" />

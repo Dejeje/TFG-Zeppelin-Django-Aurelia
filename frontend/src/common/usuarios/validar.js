@@ -9,7 +9,6 @@ export class ValidarUsuarios {
 
     constructor(HttpClient) {
         this.http = HttpClient;
-
         this.fetchData();    
     }
 
@@ -19,7 +18,6 @@ export class ValidarUsuarios {
             var token;
             localStorage.getItem('access_token', token); 
       
-            // Configurar el encabezado de autorización en la solicitud Fetch
             this.http.configure(config => {
               config.withDefaults({
                 headers: {
@@ -29,7 +27,6 @@ export class ValidarUsuarios {
               });
             });
 
-            // Hacer la solicitud Fetch
             const response = await this.http.fetch('http://localhost:8000/zeppelin/usuario/validar/'+id+'/');
             const data = await response.json();
 
@@ -47,7 +44,6 @@ export class ValidarUsuarios {
           var token;
           localStorage.getItem('access_token', token); 
     
-          // Configurar el encabezado de autorización en la solicitud Fetch
           this.http.configure(config => {
             config.withDefaults({
               headers: {
@@ -57,7 +53,6 @@ export class ValidarUsuarios {
             });
           });
     
-          // Hacer la solicitud Fetch
           const response = await this.http.fetch('http://localhost:8000/zeppelin/usuario/por_validar/');
           const data = await response.json();
           

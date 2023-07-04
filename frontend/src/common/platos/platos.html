@@ -2,8 +2,8 @@
     <require from="style/plato.css"></require>
     <require from="style/loading.css"></require>
     <div class="plate-header">
-        <span class="title"> Lista de platos </span>
-        <div if.bind="user.tipoUsuario == 2" click.delegate="newPlate()" class="new-plate"> Nuevo Plato </div>
+        <span class="title"> Menu </span>
+        <div if.bind="user.tipoUsuario == 2" click.delegate="newPlate()" class="new-plate"> New Plate </div>
     </div>
     <strong><div class="alert alert-success" if.bind="detail">${detail}</div></strong>
 

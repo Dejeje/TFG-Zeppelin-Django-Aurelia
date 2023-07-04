@@ -3,7 +3,7 @@
     <require from="style/loading.css"></require>
     <div if.bind="!loading" class="restaurant-detail-container">
         <div>
-            <span class="title-section">${ idRestaurante ? 'Actualizar Restaurante' : 'Crear Restaurante' } </span>
+            <span class="title-section">${ idRestaurante ? 'Update Restaurant' : 'Create Restaurant' } </span>
             <strong>
                 <div class="alert alert-success" if.bind="detail">${detail}</div>
             </strong>
@@ -41,8 +41,8 @@
                         placeholder="Entra el codigo postal" required />
                 </fieldset>
 
-                <button type="submit" class="btn btn-default submit-acttion"> ${ idRestaurante ? 'Actualizar' :
-                    'Guardar' } </button>
+                <button type="submit" class="btn btn-default submit-acttion"> ${ idRestaurante ? 'Update' :
+                    'Save' } </button>
             </form>
         </div>
     </div>

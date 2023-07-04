@@ -3,7 +3,7 @@ import { inject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
 
 @inject(Router, HttpClient)
-export class Restaurant {
+export class Restaurante {
     router;
     http;
     listado_restaurantes = [];
